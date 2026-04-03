@@ -42,7 +42,7 @@ claude-launch
 {
   "base_url": "https://api.openai.com/v1",
   "api_key": "sk-your-key",
-  "last_model": " "
+  "last_model": ""
 }
 ```
 
