@@ -13,6 +13,10 @@ cd claude-launch
 go build -o claude-launch .
 mv claude-launch ~/.local/bin/
 
+# 使用AUR安装
+git clone https://aur.archlinux.org/claude-launch.git
+makepkg -si
+
 # 或者使用构建脚本
 chmod +x build.sh
 ./build.sh
