@@ -169,10 +169,10 @@ func convertMessageParam(msg MessageParam) []OAMessage {
 	// Build the main message if there's text, tool calls, or reasoning
 	if textParts.Len() > 0 || len(toolCalls) > 0 || reasoning != "" {
 		m := OAMessage{
-			Role:      role,
-			Content:   textParts.String(),
-			ToolCalls: toolCalls,
-			Reasoning: reasoning,
+			Role:             role,
+			Content:          textParts.String(),
+			ToolCalls:        toolCalls,
+			ReasoningContent: reasoning,
 		}
 		if role == "user" && len(messages) > 0 {
 			// For user messages with tool_results, tool messages must come first
@@ -262,11 +262,11 @@ func convertOpenAIToAnthropic(comp ChatCompletion, model string) MessagesRespons
 	}
 
 	return MessagesResponse{
-		ID:      GenerateMessageID(),
-		Type:    "message",
-		Role:    "assistant",
-		Model:   model,
-		Content: content,
+		ID:         GenerateMessageID(),
+		Type:       "message",
+		Role:       "assistant",
+		Model:      model,
+		Content:    content,
 		StopReason: stopReason,
 		Usage: Usage{
 			InputTokens:  comp.Usage.PromptTokens,
